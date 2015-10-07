@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Miquel Tolosa Mas</title>
+		<meta name="description" content="Miquel Tolosa" />
+		<meta name="keywords" content="3d page, menu, navigation, mobile, perspective, css transform, web development, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/trans.css">
+		<link rel="stylesheet" type="text/css" href="css/animate-custom.css">			
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/drone.css" />
+		<!-- csstransforms3d-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load --> 
+		<script src="js/modernizr.custom.25376.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.clipboard.js"></script>
+		
+	</head>
+	<body>
+
+		<div id="perspective" class="perspective effect-rotateleft">
+			<div class="container" style="overflow-x:hidden;">
+	
+	<div id="bg">
+		<div id="img_bg6" class="bg_color bg_color-blue"></div>
+		<div id="img_bg5" class="bg_color bg_color-brown"></div>
+		<div id="img_bg4" class="bg_color bg_color-red"></div>
+		<div id="img_bg3" class="bg_color bg_color-purple"></div>
+		<div id="img_bg2" class="bg_color bg_color-green"></div>
+		<div id="img_bg1" class="bg_color bg_color-blue" style="opacity: 0.9;"></div>			
+	</div>
+	
+				<div class="wrapper"><!-- wrapper needed for scroll -->
+					<div id="social_icons">
+						<a href="https://twitter.com/vellaggio7" target="_blank"><img src="images/twitter-icon.png"></a>	
+						<a href="https://www.facebook.com/miquel.t.mas" target="_blank"><img src="images/facebook-icon.png"></a>						
+					</div>
+					<header class="codrops-header">
+						<h1 id="nom" class="animated fadeInUpBig">Miquel Tolosa Mas</h1>	
+					</header>
+									
+					<div hidden class="main clearfix" style="margin-top: -20px;">												
+						<div class="column" style="width: 70%;" id="text_description">												
+							<p>" 20 years old, Founder & CEO at MonkingMe.com, web developer, drone pilot, studing Computer Science in Barcelona. Lover of electronic music and ready to change the rules."</p>											
+						</div>
+						<div id="careto">
+							<img src="images/perfil_salou.jpg">
+						</div>
+						<div style="width:100%; text-align:center; margin-top:30px;">
+								<button id="showMenu" class="btn btn-1 btn-1e">My Projects</button>
+								<a href="javascript:void(0);" onclick="$('#mail').fadeIn('slow');">
+									<button id="showMail" class="btn btn-1 btn-1e">Contact</button>
+								</a>
+							</div>
+						
+						<img class="stylie" id="drone"src="images/drone.png">	
+					</div><!-- /main -->
+					
+				</div><!-- wrapper -->
+				<div hidden id="mail">
+					<div style="height:30%; width:100%;">
+						<div><a href="javascript:void(0);" onclick="$('#mail').fadeOut();" style="color:white; font-size:2em; position: fixed; top: 0px; right: 40px;"><p>X</p></a></div>
+					</div>
+					<div style="text-align:center; vertical-align:middle;"><p id="mail-text" style="position:relative; bottom:0; font-size:2em">miqueltolosamas@gmail.com</p></div>
+					<div hidden style="text-align:center;"><p style="font-size:1em"><a href="javascript:void(0);" id="copy_link">copy to clipboard</a></p></div>
+
+				</div>	
+			</div><!-- /container -->
+			
+			<nav class="outer-nav right vertical">
+				<a href="http://monkingme.com/" target="_blank">MonkingMe</a>
+				<a class="notyet" href="javascript:void(0);" onclick="$('#still_dev').animate({opacity: '1'}, 1000);" >Ask a drone <span style="opacity:0;" id="still_dev">- Still developing</span></a>
+				<!--<a class="notyet" href="javascript:void(0);" onclick="$('#still_dev').animate({opacity: '1'}, 1000);">Catch & Win <span style="opacity:0;" id="still_dev">- Still developing</span></a>-->			
+				<a target="_blank" href="https://www.facebook.com/CatchAndWin" >Catch & Win</a>
+				<a target="_blank" href="javascript-works.html">Javascript Works</a>			
+			</nav>
+			
+		</div><!-- /perspective -->
+		
+		<script src="js/classie.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/trans.js"></script>
+
+
+	</body>
+</html>

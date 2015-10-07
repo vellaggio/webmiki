@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Full Screen Background Transition</title>
+		<meta name="description" content="Full Screen Background Transition by Miquel Tolosa Mas" />
+		<meta name="keywords" content="Full, Screen, Background, Transition, Miquel, Tolosa" />
+		<meta name="author" content="Miquel Tolosa Mas" />
+		<link rel="stylesheet" type="text/css" href="css/animate-custom.css">			
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/js-playlist-api.css" />
+		<!-- csstransforms3d-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load --> 
+		<script src="js/modernizr.custom.25376.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			function addCaptionsToCode() {
+				var codes = document.getElementsByTagName("code");
+				var elTitle, elPre;
+				for (var i=0, l=codes.length ; i<l ; i++) {
+					title = codes[i].title;
+					if (title) {
+						// Remove title from CODE
+						codes[i].title = "";
+						// Prepare caption DIV
+						elTitle = document.createElement("div");
+						elTitle.innerHTML = title;
+						elTitle.className = "JScodeCaption";
+						// Add class to PRE
+						elPre = codes[i].parentNode;
+						elPre.className += " JS";
+						// Insert before the PRE
+						elPre.parentNode.insertBefore(elTitle, elPre);
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div id="main_content" class="animated fadeInLeftBig">
+			<header class="codrops-header">
+				<h1 class="animated fadeInUpBig">Full Screen Background Transition</h1>	
+			</header>
+			
+		<div style="font-size: 140%; margin-bottom:50px; margin-top:-30px"><p>Hi! I'm Miquel Tolosa Mas, founder of <a target="_blank" href="http://monkingme.com">MonkingMe.com</a> <br> I left here a little gift, a full screen background transition.
+		I've done this for MonkingMe and for my personal website I hope someone will find this usefull. Everybody is free to use it, remake it and of course to propose new features, improving it or fixing any problems that you could find. Enjoy! ;)</p>
+		</div>
+		
+		<h2>Demos and examples</h2>
+		<p>You can download a zip with two examples <a target="_blank" href="http://miqueltolosa.com/demos-full_bg_transition.zip">here</a>. Or see in live in <a target="_blank" href="http://miqueltolosa.com/">my website</a></p>		
+		<br>
+		
+		<h2>Introduction and dependencies</h2>
+		<p>This code can be used to create an elegant changing background with photos or color.
+		The only thing that you have to do is decide how many photos you'll show, if the transition is gona be played repeatedly with a loop,
+		ore just once leaving the last image/color as background, and finally you should modify your images url or define in your style the colors.
+		You'll need <a target="_blank" href="http://jquery.com/">jQuery</a>		
+		<br></p>
+		<br>
+		
+
+		<h2>Options</h2>
+		<p>Let's first assign those variables with options you like:
+		<br>
+		</p>
+		<pre>
+		<code title="Setting options">
+&lt;script&gt;
+	var i=1;
+	var num_img= ;/*assign here number of images or colors*/
+	var loop=true; /*set to false if you don&#39;t want to repeatedly play the transition*/
+&lt;/script&gt;
+</code>
+		</pre>
+		<h2>Javascript functions</h2>		
+		<pre>
+		<code title="Javascript functions">
+&lt;script&gt;
+	function ascendOP(){
+		var img = "#img_bg"+i.toString()+"";	
+		$(img).animate({			
+			opacity: 0.9			
+		}, 7000, function() {
+			descendOP();			
+		});
+	}
+	
+	function descendOP(){
+		var img = "#img_bg"+i.toString()+"";					
+		if(i!=num_img)
+		{
+			i++;
+			ascendOP();					
+		}else if(loop)
+		{
+			i=1;
+			ascendOP();
+		}
+		$(img).animate({			
+			opacity: 0			
+		}, 7000, function() {
+		});
+	}
+&lt;/script&gt;
+</code>
+		</pre>
+		<p>Start the transition by calling the function <i>descendOp()</i>
+		</p>
+		<pre>
+		<code title="Starting the transition">
+&lt;script&gt;
+	$('document').ready(function(){
+		descendOP();
+	});
+&lt;/script&gt;
+</code>
+		</pre>
+		
+		<h2>Using it with images</h2>
+		<p>You have to put your html code in the place that you want. If you will use it as background I recommend to
+		put it just before the body tag, inside a div with full width and height, for example with 4 images:
+		</p>
+		<pre>
+		<code title="The HTML code for images">
+		
+&lt;div id=&quot;bg&quot;&gt;	
+	&lt;div id=&quot;img_bg4&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg3&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg2&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg1&quot; style=&quot;opacity:1;&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;			
+</code>
+		</pre>
+		
+		<pre>
+		<code title="The CSS code for images">			
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%; 
+  min-height: 100%;
+  z-index:-1;
+}
+
+#bg div img{
+  width: 100%; 
+  height: 100%;
+}		
+</code>
+		</pre>
+		<h2>Using it with colors</h2>
+		<p>To display colors we can use css classes
+		</p>
+		<pre>
+		<code title="The HTML code for colors">
+		
+&lt;div id=&quot;bg&quot;&gt;		
+	&lt;div id=&quot;img_bg4&quot; class=&quot;bg_color bg_color-red&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg3&quot; class=&quot;bg_color bg_color-green&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg2&quot; class=&quot;bg_color bg_color-blue&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg1&quot; class=&quot;bg_color bg_color-black&quot; style=&quot;opacity:1;&quot;&gt;&lt;/div&gt;	
+&lt;/div&gt;		
+</code>
+		</pre>
+
+		<pre>
+		<code title="The css code for colors">			
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%; 
+  min-height: 100%;
+  z-index:-1;
+}
+
+.bg_color {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 100%;
+  min-height: 100%;
+  opacity:0;
+}
+
+.bg_color-blue{
+	background-color: rgba(19,183,211, 1);
+}
+
+.bg_color-black{
+	background-color: rgba(0, 0, 0, 0.95);
+}
+
+.bg_color-red{
+	background-color: red;
+}
+.bg_color-green{
+	background-color: green;
+}
+</code>
+		</pre>
+		<h2>Combining images and colors</h2>
+		<p>Of course you can combine transitions mixing colors and animations, you just have to set properly the number of images and colors.
+		Mixing the to examples below would be like this:</p>
+		<pre>			
+		<code title="The HTML code for images and colors">
+&lt;div id=&quot;bg&quot;&gt;
+	&lt;div id=&quot;img_bg8&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg7&quot; class=&quot;bg_color bg_color-red&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg6&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg5&quot; class=&quot;bg_color bg_color-green&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg4&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg3&quot; class=&quot;bg_color bg_color-blue&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;img_bg2&quot; style=&quot;opacity:1;&quot;&gt;&lt;img src=&quot;path/to/your/image/image.jpg&quot;&gt;&lt;/div&gt;	
+	&lt;div id=&quot;img_bg1&quot; class=&quot;bg_color bg_color-black&quot; style=&quot;opacity:1;&quot;&gt;&lt;/div&gt;	
+&lt;/div&gt;	
+</code>
+</pre>
+		
+		<pre>
+			
+		<code title="The CSS code for images and colors">
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%; 
+  min-height: 100%;
+  z-index:-1;
+}
+
+#bg div img{
+  width: 100%; 
+  height: 100%;
+}
+
+.bg_color {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 100%;
+  min-height: 100%;
+  opacity:0;
+}
+
+.bg_color-blue{
+	background-color: rgba(19,183,211, 1);
+}
+
+.bg_color-black{
+	background-color: rgba(0, 0, 0, 0.95);
+}
+
+.bg_color-red{
+	background-color: red;
+}
+.bg_color-green{
+	background-color: green;
+}
+</code>
+			</pre>
+			</div><!-- /main -->
+	<img hidden style="position: fixed; bottom: 30px; right: 30px; cursor: pointer;" id="totop_arrow" src="images//up-arrow.png">
+	<script>		
+		$(document).ready(function () {			
+			$( window ).scroll(function() {        	
+				if(window.scrollY<30){
+					$('#totop_arrow').fadeOut();
+				}else{ 
+					$('#totop_arrow').fadeIn();
+				}
+			});	           
+			$('#totop_arrow').click(function(){
+				$('html, body').animate({scrollTop : 0},800);
+				return false;
+			});
+		});		
+	</script>
+	<script>addCaptionsToCode();</script>
+	</body>
+</html>

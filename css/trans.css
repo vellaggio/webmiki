@@ -1,0 +1,48 @@
+.centered_box{
+	margin-left: auto ;
+	margin-right: auto ;
+}
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+.bg_color {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  opacity:0;
+}
+
+.bg_color-red{
+	background-color: red;
+}
+.bg_color-blue{
+	background-color: #12b0e2;
+}
+.bg_color-black{
+	background-color: black;
+}
+.bg_color-green{
+	background-color: green;
+}
+.bg_color-yellow{
+	background-color: #eef537;
+}
+.bg_color-purple{
+	background-color: #eb17f3;
+}
+.bg_color-brown{
+	background-color: brown;
+}
+
+
+
+
